@@ -221,7 +221,7 @@ class ParserTest extends \PHPUnit_Framework_TestCase
     public function shouldReturnURIWithQueryPartFilled()
     {
         $expectedQuery = 'query';
-        $uriString = $this->exampleUri . '?'. $expectedQuery;
+        $uriString = $this->exampleUri . '?' . $expectedQuery;
         $uri = $this->parser->parse($uriString);
 
         $this->assertEquals($expectedQuery, $uri->getQuery());

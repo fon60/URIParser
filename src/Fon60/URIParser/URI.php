@@ -1,5 +1,5 @@
 <?php
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace Fon60\URIParser;
 
@@ -51,7 +51,7 @@ class URI
      */
     public function getHost()
     {
-      return $this->getPropertyOrNull('host');
+        return $this->getPropertyOrNull('host');
     }
 
     /**
