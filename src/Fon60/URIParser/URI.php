@@ -55,7 +55,7 @@ class URI
     }
 
     /**
-     * @return string|null
+     * @return integer|null
      */
     public function getPort()
     {
@@ -78,7 +78,10 @@ class URI
         return $this->getPropertyOrNull('fragment');
     }
 
-    private function getPropertyOrNull($propertyName)
+    /**
+     * @return mixed
+     */
+    private function getPropertyOrNull(string $propertyName)
     {
         return $this->data[$propertyName] ?? null;
     }
