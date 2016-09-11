@@ -15,11 +15,17 @@ class Parser
 
     public function parse(string $URIString): URI
     {
-        $regExp = self::REGEX_DELIMITER . '^[' . $this->validCharacters . ']+$' . self::REGEX_DELIMITER;
-        if (!preg_match($regExp, $URIString)) {
+        if (!$this->isValid($URIString)) {
             throw new InvalidURIException($URIString);
         }
 
         return new URI(parse_url($URIString));
+    }
+
+    private function isValid($uriString)
+    {
+        $regExp = self::REGEX_DELIMITER . '^[' . $this->validCharacters . ']+$' . self::REGEX_DELIMITER;
+
+        return preg_match($regExp, $uriString);
     }
 }
