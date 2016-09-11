@@ -18,11 +18,25 @@ class User
         $this->password = $password;
     }
 
-    public static function fromArray(array $array)
+    /**
+     * @param array $array with 'user' key and optionally 'pass' key
+     * @return User
+     */
+    public static function fromArray(array $array): self
     {
         return new static(
             $array['user'],
             $array['pass'] ?? null
         );
+    }
+
+    public function getName()
+    {
+        return $this->userName;
+    }
+
+    public function getPassword()
+    {
+        return $this->password;
     }
 }
