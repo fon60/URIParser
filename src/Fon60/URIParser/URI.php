@@ -19,7 +19,7 @@ class URI
      */
     public function getScheme()
     {
-        return $this->data['scheme'] ?? null;
+        return $this->getPropertyOrNull('scheme');
     }
 
     /**
@@ -43,7 +43,7 @@ class URI
      */
     public function getPath()
     {
-        return $this->data['path'] ?? null;
+        return $this->getPropertyOrNull('path');
     }
 
     /**
@@ -51,7 +51,7 @@ class URI
      */
     public function getHost()
     {
-      return $this->data['host'] ?? null;
+      return $this->getPropertyOrNull('host');
     }
 
     /**
@@ -59,7 +59,7 @@ class URI
      */
     public function getPort()
     {
-        return $this->data['port'] ?? null;
+        return $this->getPropertyOrNull('port');
     }
 
     /**
@@ -67,7 +67,7 @@ class URI
      */
     public function getQuery()
     {
-        return $this->data['query'] ?? null;
+        return $this->getPropertyOrNull('query');
     }
 
     /**
@@ -75,6 +75,11 @@ class URI
      */
     public function getFragment()
     {
-        return $this->data['fragment'] ?? null;
+        return $this->getPropertyOrNull('fragment');
+    }
+
+    private function getPropertyOrNull($propertyName)
+    {
+        return $this->data[$propertyName] ?? null;
     }
 }
